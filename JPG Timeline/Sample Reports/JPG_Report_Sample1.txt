@@ -1,0 +1,209 @@
+############################################
+Generating report for files in: /Users/Crystal/Desktop/Forensics/ForensicCarver/Sample Test Images
+Report generated on: December 03, 2018 at 01:48:48
+--------------------------------------------
+Summary of Files Processed: 
+Total files processed: 6
+Bare_Oak_Tree.jpg
+IMG_6702.JPG
+IMG_7136.JPG
+IMG_6828.JPG
+no_exif.jpg
+IMG_6496.JPG
+
+The following files did not contain the expected JPG header marker and may be suspect: 
+dice_png.jpg
+not_a_jpg.py
+dice_png.textClipping
+
+--------------------------------------------
+According to the DateTimeOriginal tag, the range of JPG creation is: 
+Earliest created: 2006-01-27 15:53:02 (Bare_Oak_Tree.jpg) 
+Latest created: 2018-09-25 17:51:33 (IMG_7136.JPG) 
+
+############################################
+Individual File Reports: 
+
+Generating File Report for: Bare_Oak_Tree.jpg(1221824 bytes)
+--------------------------------------------
+Hashes before file processing: 
+md5:  0d5e87865fbed132211ac137a5e72bc2
+sha1: 2dcc48b848be3445b68c51096cdf6a273725433f
+
+Hashes after file processing: 
+md5:  0d5e87865fbed132211ac137a5e72bc2
+sha1: 2dcc48b848be3445b68c51096cdf6a273725433f
+
+Summary of DateTime and GPS Exif Metadata Recovered: 
+
+Exif DateTime Tags: 
+OffsetTimeOriginal: 
+  DateTimeOriginal: 2006:01:27 15:53:02
+          Software: Adobe Photoshop 7.0
+SubSecTimeDigitzed: 
+OffsetTimeDigitzed: 
+           GPSInfo: 
+          DateTime: 2006:01:30 12:49:52
+        SubSecTime: 
+        OffsetTime: 
+SubSecTimeOriginal: 
+  DateTimeDigitzed: 
+
+No GPS Metadata Found. 
+
+############################################
+Generating File Report for: IMG_6702.JPG(62450 bytes)
+--------------------------------------------
+Hashes before file processing: 
+md5:  4f85756a83a5b0a03c5284c030fdb2fe
+sha1: 4e5b94c4f9369686662257edebbfd3f5cdcf7000
+
+Hashes after file processing: 
+md5:  4f85756a83a5b0a03c5284c030fdb2fe
+sha1: 4e5b94c4f9369686662257edebbfd3f5cdcf7000
+
+Summary of DateTime and GPS Exif Metadata Recovered: 
+
+Exif DateTime Tags: 
+OffsetTimeOriginal: 
+  DateTimeOriginal: 2018:08:16 20:19:48
+          Software: 11.4.1
+SubSecTimeDigitzed: 
+OffsetTimeDigitzed: 
+          DateTime: 2018:08:16 20:19:48
+        SubSecTime: 
+        OffsetTime: 
+SubSecTimeOriginal: 
+  DateTimeDigitzed: 
+
+Select Exif GPSInfo Tags: 
+    GPSLatitudeRef: N
+       GPSLatitude: ((43, 1), (19, 1), (976, 100))
+   GPSLongitudeRef: W
+       GPSAltitude: (2384, 1691)
+      GPSLongitude: ((70, 1), (33, 1), (2984, 100))
+    GPSAltitudeRef: b'\x00'
+
+############################################
+Generating File Report for: IMG_7136.JPG(94937 bytes)
+--------------------------------------------
+Hashes before file processing: 
+md5:  49f47a8e290944b9f9cdd5c691c97b28
+sha1: 1d66251b49073259d3f82770f0def6cbee19d4c2
+
+Hashes after file processing: 
+md5:  49f47a8e290944b9f9cdd5c691c97b28
+sha1: 1d66251b49073259d3f82770f0def6cbee19d4c2
+
+Summary of DateTime and GPS Exif Metadata Recovered: 
+
+Exif DateTime Tags: 
+OffsetTimeOriginal: 
+  DateTimeOriginal: 2018:09:25 17:51:33
+          Software: 11.4.1
+SubSecTimeDigitzed: 
+OffsetTimeDigitzed: 
+          DateTime: 2018:09:25 17:51:33
+        SubSecTime: 
+        OffsetTime: 
+SubSecTimeOriginal: 
+  DateTimeDigitzed: 
+
+Select Exif GPSInfo Tags: 
+    GPSLatitudeRef: N
+       GPSLatitude: ((43, 1), (5, 1), (440, 100))
+   GPSLongitudeRef: W
+       GPSAltitude: (28313, 165)
+      GPSLongitude: ((77, 1), (40, 1), (5031, 100))
+    GPSAltitudeRef: b'\x00'
+
+############################################
+Generating File Report for: IMG_6828.JPG(110312 bytes)
+--------------------------------------------
+Hashes before file processing: 
+md5:  02d01baeaa35e850bf45408d18904bd2
+sha1: 3b75e606740ff6a80469d079912ef6067a9805ef
+
+Hashes after file processing: 
+md5:  02d01baeaa35e850bf45408d18904bd2
+sha1: 3b75e606740ff6a80469d079912ef6067a9805ef
+
+Summary of DateTime and GPS Exif Metadata Recovered: 
+
+Exif DateTime Tags: 
+OffsetTimeOriginal: 
+  DateTimeOriginal: 2018:08:26 13:31:22
+          Software: 11.4.1
+SubSecTimeDigitzed: 
+OffsetTimeDigitzed: 
+          DateTime: 2018:08:26 13:31:22
+        SubSecTime: 
+        OffsetTime: 
+SubSecTimeOriginal: 
+  DateTimeDigitzed: 
+
+Select Exif GPSInfo Tags: 
+    GPSLatitudeRef: N
+       GPSLatitude: ((43, 1), (9, 1), (3228, 100))
+   GPSLongitudeRef: W
+       GPSAltitude: (28529, 201)
+      GPSLongitude: ((77, 1), (35, 1), (575, 100))
+    GPSAltitudeRef: b'\x00'
+
+############################################
+Generating File Report for: no_exif.jpg(35878 bytes)
+--------------------------------------------
+Hashes before file processing: 
+md5:  aa1876dba4443125314ddc04b874d04b
+sha1: c666446f0f1eace3fa4a82384fdcf7dc36e223ea
+
+Hashes after file processing: 
+md5:  aa1876dba4443125314ddc04b874d04b
+sha1: c666446f0f1eace3fa4a82384fdcf7dc36e223ea
+
+Summary of DateTime and GPS Exif Metadata Recovered: 
+
+Exif DateTime Tags: 
+OffsetTimeOriginal: 
+  DateTimeOriginal: 
+          Software: 
+SubSecTimeDigitzed: 
+OffsetTimeDigitzed: 
+           GPSInfo: 
+          DateTime: 
+        SubSecTime: 
+        OffsetTime: 
+SubSecTimeOriginal: 
+  DateTimeDigitzed: 
+
+No GPS Metadata Found. 
+
+############################################
+Generating File Report for: IMG_6496.JPG(5718249 bytes)
+--------------------------------------------
+Hashes before file processing: 
+md5:  d75315887f52fb44b50141347ffb0445
+sha1: b7321d14f22bafafb9879ebfba69db5c25e160a0
+
+Hashes after file processing: 
+md5:  d75315887f52fb44b50141347ffb0445
+sha1: b7321d14f22bafafb9879ebfba69db5c25e160a0
+
+Summary of DateTime and GPS Exif Metadata Recovered: 
+
+Exif DateTime Tags: 
+OffsetTimeOriginal: 
+  DateTimeOriginal: 2007:10:22 08:49:32
+          Software: 
+SubSecTimeDigitzed: 
+OffsetTimeDigitzed: 
+           GPSInfo: 
+          DateTime: 2007:10:22 08:49:32
+        SubSecTime: 
+        OffsetTime: 
+SubSecTimeOriginal: 
+  DateTimeDigitzed: 
+
+No GPS Metadata Found. 
+
+############################################

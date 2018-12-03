@@ -1,0 +1,32 @@
+############################################
+Generating timeline for files in: /Users/Crystal/Desktop/Forensics/ForensicCarver/Sample Test Images
+Timeline report generated on: December 03, 2018 at 01:48:48
+--------------------------------------------
+
+Basic DateTimeOriginal Statistics: 
+5 unique files over 3 unique years:
+
+Files created in year 2018:
+IMG_6702.JPG
+IMG_6828.JPG
+IMG_7136.JPG
+
+Files created in year 2006:
+Bare_Oak_Tree.jpg
+
+Files created in year 2007:
+IMG_6496.JPG
+
+--------------------------------------------
+
+DateTimeOriginal Timeline: 
+
+DateTimeOriginal Stamp  JGP File
+
+ 2006-01-27 15:53:02    Bare_Oak_Tree.jpg
+ 2007-10-22 08:49:32    IMG_6496.JPG
+ 2018-08-16 20:19:48    IMG_6702.JPG
+ 2018-08-26 13:31:22    IMG_6828.JPG
+ 2018-09-25 17:51:33    IMG_7136.JPG
+
+############################################
