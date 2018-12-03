@@ -503,70 +503,75 @@ def main():
 		image_path = sys.argv[1]
 		processed_files = 0
 
-		print(banner)
-		print("Processing files in: " + image_path)
-		date = "{:%B %d, %Y at %H:%M:%S}".format(datetime.now())
-		print("Processing started on: " + date)
-		print(banner)
-		
-		for fi in os.listdir(image_path):
+		if not (os.path.exists(image_path)):
+			print("\nError, problem with given file path.")
+			print("[%s] does not seem to exist.\n" % image_path)
 
-			#fi = fi.strip()
-			full_path = image_path + "/" + fi
+		else:
+			print(banner)
+			print("Processing files in: " + image_path)
+			date = "{:%B %d, %Y at %H:%M:%S}".format(datetime.now())
+			print("Processing started on: " + date)
+			print(banner)
+			
+			for fi in os.listdir(image_path):
 
-			# ignore hidden files and sub-dirs
-			if not fi.startswith('.') and not os.path.isdir(full_path):
-				processed_files += 1
-				
-				print("Generating md5 and sha1 hashes for " + fi)
+				#fi = fi.strip()
+				full_path = image_path + "/" + fi
 
-				md5 = hashlib.md5(fi.encode()).hexdigest()
-				sha1 = hashlib.sha1(fi.encode()).hexdigest()
+				# ignore hidden files and sub-dirs
+				if not fi.startswith('.') and not os.path.isdir(full_path):
+					processed_files += 1
+					
+					print("Generating md5 and sha1 hashes for " + fi)
 
-				print("md5 hash:  " + md5)
-				print("sha1 hash: " + sha1)
-				
-				print("\nOpening " + fi + "...")
+					md5 = hashlib.md5(fi.encode()).hexdigest()
+					sha1 = hashlib.sha1(fi.encode()).hexdigest()
 
-				contents, size, soi, eoi = read_file(full_path)
+					print("md5 hash:  " + md5)
+					print("sha1 hash: " + sha1)
+					
+					print("\nOpening " + fi + "...")
 
-				if (not soi) or (not eoi):
-					print("\n" + fi + " may not be a JPG file...")
-					not_jpgs.append(fi)
+					contents, size, soi, eoi = read_file(full_path)
 
-					if not soi:
-						print ("File is missing SOI header " + str(exif_segments['SOI']))
-					if not eoi:
-						print ("File is missing EOI header " + str(exif_segments['EOI']))
+					if (not soi) or (not eoi):
+						print("\n" + fi + " may not be a JPG file...")
+						not_jpgs.append(fi)
 
-				else:
+						if not soi:
+							print ("File is missing SOI header " + str(exif_segments['SOI']))
+						if not eoi:
+							print ("File is missing EOI header " + str(exif_segments['EOI']))
 
-					print("Extracting file metadata....\n")
+					else:
 
-					new_jpg = JPG(md5, sha1, fi, contents, size)
-					jpg_files.append(new_jpg)
+						print("Extracting file metadata....\n")
 
-					tag_dict  = process_PIL(full_path)
-					process_tags(tag_dict, new_jpg)
+						new_jpg = JPG(md5, sha1, fi, contents, size)
+						jpg_files.append(new_jpg)
 
-					#new_jpg.print_exif()
+						tag_dict  = process_PIL(full_path)
+						process_tags(tag_dict, new_jpg)
 
-				print(half_banner + "\n")
+						#new_jpg.print_exif()
 
-		#mass_print()
-		jpg_sorted, no_time = date_sort_original()	# Ordered dict of Original Times: filename, List of JPG(s) w none
+					print(half_banner + "\n")
 
-		timeline_name = generate_timeline(image_path, jpg_sorted)
-		print("Generated JPG Timeline...." + timeline_name)
+			#mass_print()
+			jpg_sorted, no_time = date_sort_original()	# Ordered dict of Original Times: filename, List of JPG(s) w none
 
-		report_name = generate_report(image_path, jpg_sorted)
-		print("Generated JPG Report...." + report_name + "\n")
+			timeline_name = generate_timeline(image_path, jpg_sorted)
+			print("Generated JPG Timeline...." + timeline_name)
 
-		print(banner)
-		print("Total files processed: " + str(processed_files))
-		print("Processing finished on: " + date)
-		print("Hashes generated with: Python's 'hashlib' library.")
-		print(banner)
+			report_name = generate_report(image_path, jpg_sorted)
+			print("Generated JPG Report...." + report_name + "\n")
+
+			print(banner)
+			print("Total files processed: " + str(processed_files))
+			print("Processing finished on: " + date)
+			print("Hashes generated with: Python's 'hashlib' library.")
+			print(banner)
 
 main()
 
