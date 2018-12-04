@@ -5,8 +5,11 @@ import sys
 import os
 import time
 
+# define jpg file format segments
 JPEG_SOF=b'\xFF\xD8\xFF\xE0'
 JPEG_EOF=b'\xFF\xD9'
+
+# output directory for jpgs
 DIR = "carved_jpgs/"
 
 def carve_jpgs(image):
