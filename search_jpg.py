@@ -9,15 +9,16 @@ def scan_image(image):
 
     :returns: an array containing files found in the image if any
     """
-    signatures = binwalk.scan(image, signature=True, extract=True)[0]
+    carved_files = list()
+    signatures = binwalk.scan(image, signature=True, extract=True, quiet=True)[0]
 
     for result in signatures.results:
         if signatures.extractor.output.has_key(result.file.path):
             # These are files that binwalk carved out of the original firmware image, a la dd
             if signatures.extractor.output[result.file.path].carved.has_key(result.offset):
-                print("Carved data from offset 0x{:x} to {}".format(
-                    result.offset, 
-                    signatures.extractor.output[result.file.path].carved[result.offset]))
+                carved_file_name = signatures.extractor.output[result.file.path].carved[result.offset]
+                carved_files.append(carved_file_name)
+                print("Carved data from offset 0x{:x} to {}".format(result.offset, carved_file_name))
         
             # These are files/directories created by extraction utilities (gunzip, tar, unsquashfs, etc)
             if signatures.extractor.output[result.file.path].extracted.has_key(result.offset):
@@ -27,10 +28,18 @@ def scan_image(image):
                     signatures.extractor.output[result.file.path].extracted[result.offset].files[0],
                     signatures.extractor.output[result.file.path].extracted[result.offset].command))
 
+    return carved_files
+    
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Looks for other files hidden within the given JPG image', add_help=True)
     parser.add_argument('-f', dest='file', help='The JPG image to search in', required=True)
     args = parser.parse_args()
     image = args.file
-    scan_image(image)
+    files = scan_image(image)
+    if len(files) == 0:
+        print("JPG image is clean")
+    else:
+        print("Files discovered within the JPG:")
+        for file in files:
+            print("\t{}".format(file))
