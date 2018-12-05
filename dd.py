@@ -13,7 +13,7 @@ mount = output[:output.find('on')]
 print('USB is mounted at ' + mount)
 
 # then run dd command
-cmd = 'sudo dd if=' + mount.rstrip() + ' of=/home/dosh/ForensicCarver/kristen.dd'
+cmd = 'sudo dd if=' + mount.rstrip() + ' of=/home/doshmajhan/ForensicCarver/kristen.dd'
 print('Running dd command: ' + cmd)
 exit_code = os.system(cmd)
 if exit_code==0:
