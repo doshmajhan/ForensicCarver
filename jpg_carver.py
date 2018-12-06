@@ -5,6 +5,7 @@ import sys
 import os
 import time
 import hashlib
+from PIL import Image
 
 # define jpg file format segments
 #JPEG_SOF=b'\xFF\xD8\xFF\xE0'
@@ -40,6 +41,13 @@ def carve_jpgs(image):
 		carve_jpg.write(subdata)
 		carve_jpg.close()
 
+		# validate if file is an actual jpg or not
+		try:
+			Image.open(carve_filepath)
+		except IOError:
+			os.remove(carve_filepath)
+			continue
+		
 		images_found += 1
 		i += 1
 
