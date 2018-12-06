@@ -26,9 +26,8 @@ def analyze_image(image):
     print("\nFound {} JPEG images in {:.4f} seconds".format(images_found, end))
     print("Parsing complete.")
     print(BANNER)
-
+    
     # create timelines for images
-
     print(BANNER)
     print("Processing files in: " + DIRECTORY)
     date = "{:%B %d, %Y at %H:%M:%S}".format(datetime.now())

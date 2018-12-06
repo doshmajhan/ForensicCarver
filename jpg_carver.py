@@ -37,7 +37,6 @@ def carve_jpgs(image):
 	for sof, eof in zip(sof_list, eof_list):
 		subdata=data[sof:eof + 2]
 		carve_filepath= "{}{}_{}.jpg".format(DIR, str(sof), str(eof))
-		print("\t-> JPG found, carving to " + carve_filepath)
 		carve_jpg = open(carve_filepath, 'wb')
 		carve_jpg.write(subdata)
 		carve_jpg.close()
@@ -45,6 +44,7 @@ def carve_jpgs(image):
 		# validate if file is an actual jpg or not
 		try:
 			Image.open(carve_filepath)
+			print("\t-> JPG found, carved to " + carve_filepath)
 		except IOError:
 			os.remove(carve_filepath)
 			continue
