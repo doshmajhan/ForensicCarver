@@ -13,11 +13,17 @@ def analyze_image(image):
     """
 	# parse disk image for jpgs
     start = time.clock()
-    images_found = carve_jpgs(image)
+    images_found = jpg_carver.carve_jpgs(image)
     end = time.clock() - start
     print("\nFound {} JPEG images in {:.4f} seconds".format(images_found, end))
     print("Parsing complete.")
     print("------------------------------------------")
+
+    # create timelines for images
+
+
+    # search images for hidden files
+    
 
 
 if __name__ == '__main__':

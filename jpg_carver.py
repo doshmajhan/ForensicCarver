@@ -4,9 +4,11 @@ import re
 import sys
 import os
 import time
+import hashlib
 
 # define jpg file format segments
-JPEG_SOF=b'\xFF\xD8\xFF\xE0'
+#JPEG_SOF=b'\xFF\xD8\xFF\xE0'
+JPEG_SOF=b'\xFF\xD8'
 JPEG_EOF=b'\xFF\xD9'
 
 # output directory for jpgs
@@ -30,10 +32,9 @@ def carve_jpgs(image):
 
 	# get subdata for each jpg and create a file
 	i = 0
-	ensure_dir()
-	for sof in sof_list:
-		subdata=data[sof:eof_list[i] + 2]
-		carve_filepath= DIR + str(sof) + "_" + str(eof_list[i]) + ".jpg"
+	for sof, eof in zip(sof_list, eof_list):
+		subdata=data[sof:eof + 2]
+		carve_filepath= "{}{}_{}.jpg".format(DIR, str(sof), str(eof))
 		print("\t-> JPG found, carving to " + carve_filepath)
 		carve_jpg = open(carve_filepath, 'wb')
 		carve_jpg.write(subdata)
@@ -60,6 +61,7 @@ if __name__ == '__main__':
 		usage()
 	image = sys.argv[1]
 
+	ensure_dir()
 	# parse disk image for jpgs
 	s = time.clock()
 	images_found = carve_jpgs(image)
