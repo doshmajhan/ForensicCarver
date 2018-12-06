@@ -1,4 +1,5 @@
 import argparse
+import os
 import time
 from datetime import datetime
 
@@ -7,6 +8,8 @@ import jpg_searcher
 import jpg_timeline
 
 DIRECTORY = "carved_jpgs"
+BANNER = "============================================"
+HALF_BANNER = "--------------------------------------------"
 
 def analyze_image(image):
     """
@@ -22,15 +25,15 @@ def analyze_image(image):
     end = time.clock() - start
     print("\nFound {} JPEG images in {:.4f} seconds".format(images_found, end))
     print("Parsing complete.")
-    print("------------------------------------------")
+    print(BANNER)
 
     # create timelines for images
 
-    print(jpg_timeline.banner)
+    print(BANNER)
     print("Processing files in: " + DIRECTORY)
     date = "{:%B %d, %Y at %H:%M:%S}".format(datetime.now())
     print("Processing started on: " + date)
-    print(jpg_timeline.banner)
+    print(BANNER)
     
     processed_files = jpg_timeline.process_files(DIRECTORY)
 
@@ -43,15 +46,27 @@ def analyze_image(image):
     report_name = jpg_timeline.generate_report(DIRECTORY, jpg_sorted)
     print("Generated JPG Report...." + report_name + "\n")
 
-    print(jpg_timeline.banner)
+    print(BANNER)
     print("Total files processed: " + str(processed_files))
     print("Processing finished on: " + date)
     print("Hashes generated with: Python's 'hashlib' library.")
-    print(jpg_timeline.banner)
+    print(BANNER)
 
 
+    print(BANNER)
+    print("Searching each image for hidden files\n")
     # search images for hidden files
-
+    for fi in os.listdir(DIRECTORY):
+        print("\nSearching {}".format(fi))
+        hidden_files = jpg_searcher.scan_image("{}/{}".format(DIRECTORY, fi))
+        if len(hidden_files) == 0:
+            print("JPG image is clean")
+        else:
+            print("Files discovered within the JPG:")
+            for f in hidden_files:
+                print("\t{}".format(f))
+        
+        print("\n{}".format(HALF_BANNER))
 
 
 if __name__ == '__main__':

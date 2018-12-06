@@ -14,11 +14,12 @@ JPEG_EOF=b'\xFF\xD9'
 
 # output directory for jpgs
 DIR = "carved_jpgs/"
+BANNER = "============================================"
 
 def carve_jpgs(image):
 	# print program start
 	image_size = os.path.getsize(image)
-	print("\n------------------------------------------")
+	print(BANNER)
 	print("Parsing {} ({} bytes) for JPGs\n".format(image, image_size))
 
 	# load disk image data
@@ -74,4 +75,5 @@ if __name__ == '__main__':
 	s = time.clock()
 	images_found = carve_jpgs(image)
 	print("\nFound {} JPEG images in {:.4f} seconds".format(images_found, time.clock() - s))
-	print("Parsing complete.\n------------------------------------------\n")
+	print("Parsing complete.")
+	print(BANNER)
